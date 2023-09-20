@@ -36,7 +36,7 @@ export const UpdatePokemon = () => {
     if (id) {
       setDisabled(false);
       const data = axios
-        .get(`http://localhost:8080/v1/pokemon/${id}`)
+        .get(`https://pokedex-api-4hn5.onrender.com/v1/pokemon/${id}`)
         .then((res) => setValues(res.data[0]));
       return;
     }
@@ -48,7 +48,7 @@ export const UpdatePokemon = () => {
   const handleDelete = async () => {
     if (id >= 102) {
       const data = await axios
-        .delete(`http://localhost:8080/v1/deletePokemon/${id}`)
+        .delete(`https://pokedex-api-4hn5.onrender.com/v1/deletePokemon/${id}`)
         .then((res) => res.data);
 
       if (data.status == 200) {
@@ -96,11 +96,15 @@ export const UpdatePokemon = () => {
 
     if (id >= 102) {
       await axios
-        .put(`http://localhost:8080/v1/updatePokemon/`, values, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
+        .put(
+          `https://pokedex-api-4hn5.onrender.com/v1/updatePokemon/`,
+          values,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
         .then((res) => res.data);
 
       Array.from(document.querySelectorAll("input")).forEach(
