@@ -5,7 +5,7 @@ export const ContainerSection = styled.section`
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  background-color: ${(props) => props.backgroundColor || "#fffff"};
+  background-color: ${(props) => props.backgroundColor};
   padding: 10px;
   border-radius: 5px;
 
@@ -18,7 +18,6 @@ export const ContainerSection = styled.section`
     justify-content: space-around;
     align-items: center;
     background-color: white;
-    padding: 5px;
     margin-top: 6px;
     border-radius: 5px;
   }

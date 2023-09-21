@@ -1,14 +1,15 @@
 import styled  from "@emotion/styled";
 
 export const ContainerCard = styled.div`
+
+width: 250px;
 display: flex;
 flex-direction: column;
-justify-content: center;
+justify-content: space-around;
 gap: 10px;
-width: 300px;
 
 background-color: ${(props) => props.backgroundColor || "#BF4F74"};
-padding:1rem;
+padding:8px;
 border: 2px solid ${(props) => props.borderColor || "#000000"};
 border-radius: 10px;
 

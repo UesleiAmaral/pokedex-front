@@ -5,15 +5,13 @@ export const ContainerImage = styled.figure`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 130px;
- 
+
   background-color: ${(props) => props.backgroundColor || "#BF4F74"};
   border-radius: 10px;
   border: none;
   img {
     padding: 20px;
-    height: 100%;
+    width: 100%;
+    height: 120px;
   }
 `;
-
-

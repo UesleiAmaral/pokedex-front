@@ -5,6 +5,7 @@ const override = {
   display: "block",
   margin: "0 auto",
   borderColor: "black",
+  textAlign:"center"
 };
 
 export const Loading = () => {
@@ -12,7 +13,7 @@ export const Loading = () => {
 
   return (
     <div className="sweet-loading">
-      <h1>Procurando Pokémons!</h1>
+      <h1 style={{textAlign:"center", marginBottom:"3px"}}>Procurando Pokémons!</h1>
       <BounceLoader
         color="#36d7b7"
         loading={loading}

@@ -42,14 +42,15 @@ export const Card = (props) => {
               pokemon.types[0].colors.secondaryColor || "#A7DB8D"
             }
             title={"Abilities"}
-            height={"96px"}
           >
             <ul>
               {pokemon.abilities.map((item, i) => {
                 if (item) {
                   return (
-                    <Li key={i} borderColorLi={"black"}>
-                      {item}
+                    <Li key={i}>
+                      <span>
+                        {item}
+                      </span>
                     </Li>
                   );
                 }
@@ -62,7 +63,6 @@ export const Card = (props) => {
               pokemon.types[0].colors.secondaryColor || "#A7DB8D"
             }
             title={"Type"}
-            height={"56px"}
           >
             <ul>
               {pokemon.types.map((item, i) => (
@@ -70,6 +70,7 @@ export const Card = (props) => {
                   key={i}
                   backgroundColorLi={item.colors.primaryColor || "#C183C1"}
                   borderColorLi={item.colors.secondaryColor || "#4E8234"}
+                  padding={"6px"}
                 >
                   <span>{item.name}</span>
                 </Li>

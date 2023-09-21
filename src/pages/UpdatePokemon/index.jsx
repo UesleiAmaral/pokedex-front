@@ -135,26 +135,28 @@ export const UpdatePokemon = () => {
 
   return (
     <ContainerCreateCard>
-      <div>
-        <Dialog
-          open={open}
-          TransitionComponent={Transition}
-          keepMounted
-          onClose={handleClose}
-          aria-describedby="alert-dialog-slide"
-        >
-          <DialogTitle>{"Atenção!"}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-slide">{msg}</DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose}>OK</Button>
-          </DialogActions>
-        </Dialog>
-      </div>
       <Card pokemons={[values]} />
 
       <Form>
+        <div>
+          <Dialog
+            open={open}
+            TransitionComponent={Transition}
+            keepMounted
+            onClose={handleClose}
+            aria-describedby="alert-dialog-slide"
+          >
+            <DialogTitle>{"Atenção!"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide">
+                {msg}
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>OK</Button>
+            </DialogActions>
+          </Dialog>
+        </div>
         <h1>ATUALIZAR OU EXCLUIR</h1>
         <p>Digite um ID existente Para iniciar a edição</p>
         <TextField

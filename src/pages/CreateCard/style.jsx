@@ -2,21 +2,16 @@ import styled from "@emotion/styled";
 import { Button, FormControl } from "@mui/material";
 
 export const ContainerCreateCard = styled.main`
+  position: relative;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  gap: 100px;
-  padding-top: 110px;
-  
-
-  position: relative;
   margin-bottom: 0;
-  height: 100vh;
-  h1 {
-    width: 100%;
-    text-align: center;
-  }
+  padding-top: 100px;
+  gap: 50px;
+
 `;
 
 export const Submit = styled(Button)`
@@ -48,12 +43,17 @@ export const Form = styled(FormControl)`
 
   border-radius: 5px;
 
-  padding: 20px 40px;
+  padding: 0 20px 40px;
   border: 1px solid RGB(128, 128, 128);
 
-  >div{
+  > div {
     display: flex;
     gap: 30px;
+  }
+
+  > h1 {
+    width: 100%;
+    text-align: center;
   }
 `;
 

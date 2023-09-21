@@ -9,13 +9,12 @@ export const ContainerNavbar = styled.nav`
   align-items: center;
 
   position: fixed;
-  z-index: 100;
+  z-index: 10;
   background-color: aliceblue;
   box-shadow: 0 0 10px black;
 
-
   > a {
-    font-size: 30px;
+    font-size: clamp(.5rem, 5vw, 2rem);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,6 +22,6 @@ export const ContainerNavbar = styled.nav`
     width: fit-content;
     text-decoration: none;
     color: black;
-    letter-spacing: 6px;
+    letter-spacing: 4px;
   }
 `;

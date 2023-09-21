@@ -1,0 +1,14 @@
+
+.swiper {
+  width: 250px;
+}
+
+.swiper-slide {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+}
+

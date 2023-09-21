@@ -6,6 +6,7 @@ export const ContainerTitle = styled.h1`
   border-radius: 5px;
   position: relative;
 
+  font-size: 18px;
   padding: 5px 0;
 
   span{
