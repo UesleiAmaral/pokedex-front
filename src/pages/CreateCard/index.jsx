@@ -88,8 +88,6 @@ export const CreateCard = () => {
 
   return (
     <ContainerCreateCard>
-      <Card pokemons={[values]} />
-
       <Form>
         <div>
           <Dialog
@@ -145,6 +143,7 @@ export const CreateCard = () => {
           <SendIcon />
         </Submit>
       </Form>
+      <Card pokemons={[values]} />
     </ContainerCreateCard>
   );
 };

@@ -6,6 +6,12 @@ import { Link } from "react-router-dom";
 export const Header = () => {
   return (
     <ContainerNavbar>
+      <Sidebar
+        pageWrapId={"page-wrap"}
+        outerContainerId={"outer-container"}
+        styles={styles}
+      />
+
       <Link to="/">
         <img
           className="imgLogo"
@@ -14,12 +20,8 @@ export const Header = () => {
         />
         <h1>POKÉDEX</h1>
       </Link>
+
       
-      <Sidebar
-        pageWrapId={"page-wrap"}
-        outerContainerId={"outer-container"}
-        styles={styles}
-      />
     </ContainerNavbar>
   );
 };

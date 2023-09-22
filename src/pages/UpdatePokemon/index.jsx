@@ -135,8 +135,6 @@ export const UpdatePokemon = () => {
 
   return (
     <ContainerCreateCard>
-      <Card pokemons={[values]} />
-
       <Form>
         <div>
           <Dialog
@@ -199,6 +197,7 @@ export const UpdatePokemon = () => {
           </Submit>
         </div>
       </Form>
+      <Card pokemons={[values]} />
     </ContainerCreateCard>
   );
 };

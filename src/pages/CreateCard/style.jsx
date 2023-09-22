@@ -9,7 +9,7 @@ export const ContainerCreateCard = styled.main`
   justify-content: center;
   align-items: center;
   margin-bottom: 0;
-  padding-top: 100px;
+  padding-top: 150px;
   gap: 50px;
 
 `;

@@ -3,9 +3,9 @@ export var styles = {
     position: "absolute",
     width: "36px",
     height: "30px",
-    left: "36px",
+    left: "37px",
     top: "26px",
-    zIndex: 1000,
+    zIndex: 10,
   },
   bmBurgerBars: {
     background: "#373a47",

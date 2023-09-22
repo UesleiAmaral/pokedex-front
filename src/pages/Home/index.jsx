@@ -32,28 +32,6 @@ export const Home = () => {
       <p>Uma API criada para ser simples e facil de usar</p>
       
       <div>
-        <Swiper
-          
-          effect={"cards"}
-          grabCursor={true}
-          modules={[EffectCards, Autoplay, Pagination, Navigation]}
-          className="mySwiper"
-          autoplay={{
-            delay: 2300,
-            disableOnInteraction: false,
-          }}
-          navigation={true}
-        >
-          {pokemon.map((item, i) => {
-            if (i <= 5) {
-              return (
-                <SwiperSlide key={i}>
-                  <Card key={i} pokemons={[item]} />
-                </SwiperSlide>
-              );
-            }
-          })}
-        </Swiper>
 
         <Swiper
           effect={"cards"}

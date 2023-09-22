@@ -2,7 +2,8 @@ export const schemas = {
   schema: {
     id: 0,
     name: "",
-    image: "",
+    image:
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg",
     abilities: [],
     stats: [],
     types: [
@@ -16,5 +17,4 @@ export const schemas = {
       },
     ],
   },
-
 };
