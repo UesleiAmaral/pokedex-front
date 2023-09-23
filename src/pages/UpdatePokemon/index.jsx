@@ -58,7 +58,9 @@ export const UpdatePokemon = () => {
         Array.from(document.querySelectorAll("input")).forEach(
           (input) => (input.value = "")
         );
+        setSeverity("success");
         setMsg("DELETADO COM SUCESSO!");
+
         setOpen((item) => !item);
         handleClose();
         setId(0);
@@ -93,7 +95,7 @@ export const UpdatePokemon = () => {
 
       return setMsg("Nome não pode estar vazio!");
     }
-    if (values.image == "") {
+    if (values.image == "" || values.image == pokemonUpdate.image) {
       setOpen((item) => !item);
       handleClose();
       return setMsg("imagem não pode estar vazio!");
@@ -117,6 +119,7 @@ export const UpdatePokemon = () => {
       );
 
       setValues(pokemonUpdate);
+    setSeverity("success");
       setMsg("Enviado com sucesso!");
       setOpen((item) => !item);
       handleClose();
