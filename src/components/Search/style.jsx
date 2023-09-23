@@ -6,6 +6,7 @@ export const ContainerSearch = styled.section`
     display: flex;
     justify-content: center;
 
+    margin-bottom: 20px;
   input {
     padding: 10px 10px;
     outline: none;

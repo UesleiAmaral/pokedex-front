@@ -3,8 +3,8 @@ export var styles = {
     position: "absolute",
     width: "36px",
     height: "30px",
-    left: "37px",
-    top: "26px",
+    left: "15px",
+    top: "37%",
     zIndex: 10,
   },
   bmBurgerBars: {

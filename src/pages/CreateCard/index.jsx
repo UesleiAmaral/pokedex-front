@@ -1,55 +1,46 @@
-import { forwardRef, useState } from "react";
+import { useState } from "react";
 import { Card } from "../../components/Card";
 import { ContainerCreateCard, Form, Submit } from "./style";
+import { AlertComponent } from "../../components/Alert";
 import axios from "axios";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Slide,
-  TextField,
-} from "@mui/material";
+import { TextField } from "@mui/material";
 
 import SendIcon from "@mui/icons-material/Send";
 import { schemas } from "../../scripts/schemas";
 const pokemonUser = schemas.schema;
 
-const Transition = forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
-
 export const CreateCard = () => {
   const [values, setValues] = useState(pokemonUser);
   const [msg, setMsg] = useState("");
-
   const [open, setOpen] = useState(false);
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  const [severity, setSeverity] = useState("error");
 
   const handleClose = () => {
-    setOpen(false);
+    setTimeout(() => {
+      setOpen((prevState) => !prevState);
+      setSeverity("error");
+    }, 2000);
   };
 
   async function onSubmit(e) {
     e.preventDefault();
 
     if (values.name == "") {
-      handleClickOpen();
+      setOpen((item) => !item);
+      handleClose();
 
       return setMsg("Nome não pode estar vazio!");
     }
-    if (values.image == "") {
-      handleClickOpen();
+
+    if (values.image == "" || values.image == pokemonUser.image) {
+      setOpen((item) => !item);
+      handleClose();
 
       return setMsg("imagem não pode estar vazio!");
     }
     if (values.abilities == "") {
-      handleClickOpen();
+      setOpen((item) => !item);
+      handleClose();
 
       return setMsg("abilidade não pode estar vazio!");
     }
@@ -70,10 +61,11 @@ export const CreateCard = () => {
       (input) => (input.value = "")
     );
 
-    console.log(values)
     setValues(pokemonUser);
+    setSeverity("success");
     setMsg("Enviado com sucesso!");
-    handleClickOpen();
+    setOpen((item) => !item);
+    handleClose();
   }
 
   const handleChange = (e) => {
@@ -89,25 +81,6 @@ export const CreateCard = () => {
   return (
     <ContainerCreateCard>
       <Form>
-        <div>
-          <Dialog
-            open={open}
-            TransitionComponent={Transition}
-            keepMounted
-            onClose={handleClose}
-            aria-describedby="alert-dialog-slide"
-          >
-            <DialogTitle>{"Atenção!"}</DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-slide">
-                {msg}
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>OK</Button>
-            </DialogActions>
-          </Dialog>
-        </div>
         <h1>CRIE SEU POKÉMON</h1>
 
         <TextField
@@ -137,11 +110,13 @@ export const CreateCard = () => {
           onChange={handleChange}
           required={true}
         />
-
-        <Submit primary type="submit" variant="contained" onClick={onSubmit}>
-          ENVIAR
-          <SendIcon />
-        </Submit>
+        <div>
+          <Submit primary type="submit" variant="contained" onClick={onSubmit}>
+            ENVIAR
+            <SendIcon />
+          </Submit>
+          <AlertComponent isOpen={open} msg={msg} severity={severity} />
+        </div>
       </Form>
       <Card pokemons={[values]} />
     </ContainerCreateCard>

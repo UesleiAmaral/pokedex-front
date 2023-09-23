@@ -9,6 +9,6 @@ export const ContainerAllCard = styled.div`
 
   padding: 0 2rem;
 
-  margin-top: 110px;
+  margin-top: 140px;
 
 `;

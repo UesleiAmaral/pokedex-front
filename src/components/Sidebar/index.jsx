@@ -11,16 +11,16 @@ export const Sidebar = () => {
         alt=""
       />
       <Link to="/" className="container-item">
-        Home
+        Inicio
       </Link>
       <Link to="/all-pokemons" className="container-item">
-        All Pokemons
+        Todos Pokémons
       </Link>
       <Link to="/create-card" className="container-item">
-        Create You Card
+        Criar Card
       </Link>
       <Link to="/update-card" className="container-item">
-        Update and Delete
+        Atualizar ou Excluir
       </Link>
     </Menu>
   );

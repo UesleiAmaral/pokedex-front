@@ -1,6 +1,6 @@
 import { ContainerHome } from "./style";
 
-import React, { useRef, useState } from "react";
+import  { useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -17,8 +17,6 @@ import { schemas } from "../../scripts/schemas";
 import { Card } from "../../components/Card";
 import axios from "axios";
 
-const schema = schemas.schema;
-
 export const Home = () => {
   const [pokemon, setPokemon] = useState([]);
 
@@ -28,11 +26,18 @@ export const Home = () => {
 
   return (
     <ContainerHome>
-      <h1>Bem Vindo ao pokédex</h1>
-      <p>Uma API criada para ser simples e facil de usar</p>
-      
-      <div>
+      <section>
+        <h1>
+          Bem Vindo a{" "}
+          <a href="https://pokedex-api-4hn5.onrender.com/" rel="noreferrer" target="_blank">
+            {" "}
+            pokédex-API
+          </a>
+        </h1>
+        <p>Uma API criada para ser simples e facil de usar</p>
+      </section>
 
+      <div>
         <Swiper
           effect={"cards"}
           grabCursor={true}
@@ -45,7 +50,7 @@ export const Home = () => {
           navigation={true}
         >
           {pokemon.map((item, i) => {
-            if (i >= 51 && i <= 55 ) {
+            if (i >= 51 && i <= 55) {
               return (
                 <SwiperSlide key={i}>
                   <Card key={i} pokemons={[item]} />

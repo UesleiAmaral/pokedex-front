@@ -9,8 +9,10 @@ export const ContainerCreateCard = styled.main`
   justify-content: center;
   align-items: center;
   margin-bottom: 0;
-  padding-top: 150px;
+  padding: 150px 0 50px 0;
   gap: 50px;
+
+  
 
 `;
 
@@ -48,7 +50,10 @@ export const Form = styled(FormControl)`
 
   > div {
     display: flex;
+    justify-content: center;
     gap: 30px;
+    position: relative;
+    width: 100%;
   }
 
   > h1 {

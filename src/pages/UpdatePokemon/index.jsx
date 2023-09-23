@@ -1,23 +1,11 @@
-import { forwardRef, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Card } from "../../components/Card";
 import { ContainerCreateCard, Form, Submit } from "../CreateCard/style";
 import axios from "axios";
-import {
-  Button,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-  Slide,
-  TextField,
-} from "@mui/material";
+import { TextField } from "@mui/material";
 
 import { schemas } from "../../scripts/schemas";
-
-const Transition = forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
+import { AlertComponent } from "../../components/Alert";
 
 const pokemonUpdate = schemas.schema;
 
@@ -26,7 +14,15 @@ export const UpdatePokemon = () => {
   const [msg, setMsg] = useState("");
   const [id, setId] = useState(0);
   const [open, setOpen] = useState(false);
+  const [severity, setSeverity] = useState("error");
   const [disabled, setDisabled] = useState(true);
+
+  const handleClose = () => {
+    setTimeout(() => {
+      setOpen((prevState) => !prevState);
+      setSeverity("error");
+    }, 3000);
+  };
 
   const onChangeId = (e) => {
     setId(e.target.value);
@@ -35,7 +31,7 @@ export const UpdatePokemon = () => {
   useEffect(() => {
     if (id) {
       setDisabled(false);
-      const data = axios
+      axios
         .get(`https://pokedex-api-4hn5.onrender.com/v1/pokemon/${id}`)
         .then((res) => setValues(res.data[0]));
       return;
@@ -46,6 +42,13 @@ export const UpdatePokemon = () => {
   }, [id]);
 
   const handleDelete = async () => {
+    if (!id) {
+      setMsg("ESCOLHA UM ID!");
+      setOpen((item) => !item);
+      handleClose();
+      return;
+    }
+
     if (id >= 102) {
       const data = await axios
         .delete(`https://pokedex-api-4hn5.onrender.com/v1/deletePokemon/${id}`)
@@ -56,12 +59,14 @@ export const UpdatePokemon = () => {
           (input) => (input.value = "")
         );
         setMsg("DELETADO COM SUCESSO!");
+        setOpen((item) => !item);
+        handleClose();
         setId(0);
-        handleClickOpen();
         return;
       } else {
         setMsg("ID NÃO EXISTE!");
-        handleClickOpen();
+        setOpen((item) => !item);
+        handleClose();
         return;
       }
     }
@@ -69,28 +74,28 @@ export const UpdatePokemon = () => {
     setValues(pokemonUpdate);
     setId(0);
     setMsg("Voçê só pode deletar Pokemon criado por Você!");
-    handleClickOpen();
-  };
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
+    setOpen((item) => !item);
+    handleClose();
   };
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    if (!id) {
+      setMsg("ESCOLHA UM ID!");
+      setOpen((item) => !item);
+      handleClose();
+      return;
+    }
 
     if (values.name == "") {
-      handleClickOpen();
+      setOpen((item) => !item);
+      handleClose();
 
       return setMsg("Nome não pode estar vazio!");
     }
     if (values.image == "") {
-      handleClickOpen();
-
+      setOpen((item) => !item);
+      handleClose();
       return setMsg("imagem não pode estar vazio!");
     }
 
@@ -113,8 +118,8 @@ export const UpdatePokemon = () => {
 
       setValues(pokemonUpdate);
       setMsg("Enviado com sucesso!");
-      handleClickOpen();
-
+      setOpen((item) => !item);
+      handleClose();
       return;
     }
 
@@ -124,7 +129,8 @@ export const UpdatePokemon = () => {
 
     setValues(pokemonUpdate);
     setMsg("Voçê só pode atualizar Pokemon criado por Você!");
-    handleClickOpen();
+    setOpen((item) => !item);
+    handleClose();
   };
 
   const handleChange = (e) => {
@@ -136,25 +142,6 @@ export const UpdatePokemon = () => {
   return (
     <ContainerCreateCard>
       <Form>
-        <div>
-          <Dialog
-            open={open}
-            TransitionComponent={Transition}
-            keepMounted
-            onClose={handleClose}
-            aria-describedby="alert-dialog-slide"
-          >
-            <DialogTitle>{"Atenção!"}</DialogTitle>
-            <DialogContent>
-              <DialogContentText id="alert-dialog-slide">
-                {msg}
-              </DialogContentText>
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClose}>OK</Button>
-            </DialogActions>
-          </Dialog>
-        </div>
         <h1>ATUALIZAR OU EXCLUIR</h1>
         <p>Digite um ID existente Para iniciar a edição</p>
         <TextField
@@ -195,6 +182,7 @@ export const UpdatePokemon = () => {
           <Submit primary type="submit" variant="contained" onClick={onSubmit}>
             ATUALIZAR
           </Submit>
+          <AlertComponent isOpen={open} msg={msg} severity={severity} />
         </div>
       </Form>
       <Card pokemons={[values]} />

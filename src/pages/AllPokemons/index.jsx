@@ -1,5 +1,4 @@
 import { Card } from "../../components/Card";
-import { Loading } from "../../components/Loading";
 import { Search } from "../../components/Search";
 import { ContainerAllCard } from "./style";
 
