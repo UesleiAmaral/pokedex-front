@@ -4,6 +4,7 @@ import { Button, FormControl } from "@mui/material";
 export const ContainerCreateCard = styled.main`
   position: relative;
   width: 100%;
+  height:100vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
