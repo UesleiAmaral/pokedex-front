@@ -13,9 +13,9 @@ export const Loading = () => {
 
   return (
     <div className="sweet-loading">
-      <h1 style={{textAlign:"center", marginBottom:"3px"}}>Procurando Pokémons!</h1>
+      <h1 style={{textAlign:"center", marginBottom:"3px", color:'white'}}>Procurando Pokémons!</h1>
       <BounceLoader
-        color="#36d7b7"
+        color="#ffffff"
         loading={loading}
         cssOverride={override}
         size={100}
