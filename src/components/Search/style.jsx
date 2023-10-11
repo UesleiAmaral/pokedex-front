@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 export const ContainerSearch = styled.section`
   
     width: 100%;
+    height: 43px;
     display: flex;
     justify-content: center;
 

@@ -13,6 +13,12 @@ const ContainerApp = styled.main`
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
+
+  background-image: url('https://guikao.files.wordpress.com/2012/01/pokemon_wallpaper01_1680.jpg');
+
+  background-repeat: no-repeat;
+  background-size: cover;
+
 `;
 
 export const Root = () => {

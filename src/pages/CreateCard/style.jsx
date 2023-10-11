@@ -40,6 +40,7 @@ export const Form = styled(FormControl)`
   justify-content: center;
   align-items: center;
   gap: 30px;
+  background-color: white;
 
   width: 320px;
   height: fit-content;

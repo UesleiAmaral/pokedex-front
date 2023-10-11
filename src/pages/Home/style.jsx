@@ -8,20 +8,26 @@ export const ContainerHome = styled.main`
   padding-top: 100px;
   width: 100%;
   height: 100vh;
+  color: #000000;
 
       a{
-      color: #141313;
-    }
+        color: #ffff;
+        text-decoration: none;
+      }
 
   > section {
     >h1,
     >p {
+      font-size: 35px;
+      color: #ffff;
       width: 100%;
       text-align: center;
     }
-
+    
     >p{
+      font-size: 20px;
       margin-top: 20px;
+
     }
 
 

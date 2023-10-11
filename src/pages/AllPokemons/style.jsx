@@ -9,6 +9,9 @@ export const ContainerAllCard = styled.div`
 
   padding: 0 2rem;
 
+  height: 100vh;
   margin-top: 140px;
+
+  overflow-y: scroll;
 
 `;
